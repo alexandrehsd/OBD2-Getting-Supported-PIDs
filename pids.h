@@ -1,7 +1,5 @@
 #pragma once
-0x01: 'Monitor status since DTCs cleared.',
-0x02 : 'Freeze DTC',
-0x03 : 'Fuel system status',
+
 #define PID_MONITOR_STATUS 0x01
 #define PID_FREEZE_DTC 0x02
 #define PID_FUEL_STATUS 0x03
