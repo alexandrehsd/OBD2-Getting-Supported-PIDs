@@ -73,11 +73,11 @@ vector<uint32_t> fill_pids1(vector<uint32_t> arr){
 	vector<string> all_pids_str;
 	vector<uint32_t> pids;
 
-	for (uint32_t i = 0; i <= 0x87; i++) { // 0 <= i <= 135
+	for (uint32_t i = 0; i <= 135; i++) { // 0x0 <= i <= 0x87
 		if (i < arr.size()) {
 			supported_pids.push_back(dec2hex(arr[i]));
 		}
-		all_pids_str.push_back(dec2hex(arr[i]));
+		all_pids_str.push_back(dec2hex(i));
 	} 
 	all_pids_str.push_back("0xA0"); // 160
 	all_pids_str.push_back("0xC0"); // 192
