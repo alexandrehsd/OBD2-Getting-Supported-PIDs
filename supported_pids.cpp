@@ -3,66 +3,56 @@
 
 #include "pch.h"
 #include <iostream>
+#include <string>
+#include <vector>
 
-// C++ program to convert a decimal 
-// number to hexadecimal number 
 using namespace std;
 
-// function to convert decimal to hexadecimal 
-void decToHexa(int n)
-{
-	// char array to store hexadecimal number 
-	char hexaDeciNum[100];
+struct Car {
+	string name;
+	string vin;
+	string details;
+	int year;
+	vector<uint32_t> cmds;
+	vector<uint32_t> mode5;
+	vector<uint32_t> mode9;
+};
 
-	// counter for hexadecimal number array 
-	int i = 0;
-	while (n != 0)
-	{
-		// temporary variable to store remainder 
-		int temp = 0;
+int main(){
+	Car cars[2];
 
-		// storing remainder in temp variable. 
-		temp = n % 16;
+	//sandero
+	cars[0].name = "sandero";
+	cars[0].vin = "93YBSR7RHEJ298116";
+	cars[0].details = "Tech Run 1.0";
+	cars[0].year = 2014;
+	cars[0].cmds = { 0xBE3EB811, 0x80018001, 0x80000000 };
+	cars[0].mode5 = { 0x7f };
+	cars[0].mode9 = { 0x54000000 };
 
-		// check if temp < 10 
-		if (temp < 10)
-		{
-			hexaDeciNum[i] = temp + 48;
-			i++;
+	//onix
+	cars[1].name = "onix";
+	cars[1].vin = "";
+	cars[1].details = "LTZ 1.4";
+	cars[1].year = 2015;
+	cars[1].cmds = { 0xBE3FB813, 0x8007A011, 0xFED0C000 };
+	cars[1].mode5 = { };
+	cars[1].mode9 = { 0x55400000 };
+
+	//char a = '0x0D';
+	//int b = (int)a - 55;
+	//cout << b;
+
+	int v1[3] = { 0x0A, 0xB, 0xC };
+	int v2[3] = { 10, 11, 12 };
+	for (int i = 0; i < 3; i++) {
+		if (v1[i] == v2[i]) {
+			cout << v1[i] << endl;
 		}
-		else
-		{
-			hexaDeciNum[i] = temp + 55;
-			i++;
-		}
-
-		n = n / 16;
 	}
 
-	// printing hexadecimal number array in reverse order 
-	for (int j = i - 1; j >= 0; j--)
-		cout << hexaDeciNum[j];
-}
-#include <string.h>
-// Driver program to test above function 
-int main()
-{
-	int n = 2545;
-
-	decToHexa(n);
-	cout << endl;
-	string a = "0x1A";
-	cout << (int)a;
 	return 0;
+
+
 }
 
-// Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração
-// Depurar programa: F5 ou menu Depurar > Iniciar Depuração
-
-// Dicas para Começar: 
-//   1. Use a janela do Gerenciador de Soluções para adicionar/gerenciar arquivos
-//   2. Use a janela do Team Explorer para conectar-se ao controle do código-fonte
-//   3. Use a janela de Saída para ver mensagens de saída do build e outras mensagens
-//   4. Use a janela Lista de Erros para exibir erros
-//   5. Ir Para o Projeto > Adicionar Novo Item para criar novos arquivos de código, ou Projeto > Adicionar Item Existente para adicionar arquivos de código existentes ao projeto
-//   6. No futuro, para abrir este projeto novamente, vá para Arquivo > Abrir > Projeto e selecione o arquivo. sln
