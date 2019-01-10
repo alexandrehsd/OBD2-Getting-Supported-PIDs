@@ -2,11 +2,7 @@
 //
 
 #include "pch.h"
-#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
+#include "methods.h"
 
 struct Car {
 	string name;
@@ -43,12 +39,17 @@ int main(){
 	//int b = (int)a - 55;
 	//cout << b;
 
-	int v1[3] = { 0x0A, 0xB, 0xC };
-	int v2[3] = { 10, 11, 12 };
-	for (int i = 0; i < 3; i++) {
-		if (v1[i] == v2[i]) {
-			cout << v1[i] << endl;
+	vector<vector<uint32_t> > _PIDs;
+
+	for (int i = 0; i < 2; i++) {
+		_PIDs.push_back(decode_car_cmds(cars[i].cmds));
+	}
+
+	for (uint32_t i = 0; i < _PIDs.size(); i++) {
+		for (uint32_t j = 0; j < _PIDs[i].size(); j++) {
+			cout << _PIDs[i][j] << ", ";
 		}
+		cout << endl;
 	}
 
 	return 0;
